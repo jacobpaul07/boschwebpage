@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block child_block%}
+    <head>
+        <title>Siqsess</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+    <div class="container">
+        <h1 class="font-weight-bolder p-3">Bosch Form</h1>
+
+        <div class="row mt-3">
+            <div class="col-lg-6">
+                <form action="/" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="clientId" class="h">Client Id:</label>
+                        <input type="text" class="form-control" id="clientId" placeholder="Enter Client Id" name="clientId">
+                    </div>
+                    <div class="form-group">
+                        <label for="host">Host:</label>
+                        <input type="text" class="form-control" id="pwd" placeholder="Enter Host" name="host">
+                    </div>
+                    <div class="form-group">
+                        <label for="port">Port:</label>
+                        <input type="text" class="form-control" id="port" placeholder="Enter Port" name="port">
+                    </div>
+                    <div class="form-group">
+                        <label for="topic">Topic:</label>
+                        <input type="text" class="form-control" id="topic" placeholder="Enter Topic" name="topic">
+                    </div>
+                    <button type="submit" class="btn btn-success" style="text-align:center">Submit</button>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                 <h2>Result</h2>
+                <div class="container" style="border: 1px solid black">
+                    <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">Client id</th>
+                          <th scope="col">Host</th>
+                          <th scope="col">Port</th>
+                           <th scope="col">Topic</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{{ z.clientId}}</td>
+                          <td>{{ z.host}}</td>
+                          <td>{{ z.port}}</td>
+                          <td>{{ z.topic}}</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <footer  class="container-fluid p-2 mt-5" style="background-color: black">
+            <div class="container-fluid">
+
+                <img class="img-fluid pb-3 pt-3"  src="https://www.siqsess.com/assets/images/logo/siqlogoheader.png" alt="" height="" width="200">
+            </div>
+        </footer>
+
+    </body>
+    </html>
+{% endblock %}
